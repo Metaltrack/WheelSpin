@@ -1,19 +1,29 @@
+using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 public class WheelControl : MonoBehaviour
-{
+{   
     public Transform wheelModel;
-
+    CarInputActions actions;
+    ReadOnlyArray<InputBinding> keys;
     [HideInInspector] public WheelCollider WheelCollider;
 
     // Create properties for the CarControl script
     // (You should enable/disable these via the 
     // Editor Inspector window)
     public bool steerable;
-    public bool motorized;
+    public bool motorized; 
 
     Vector3 position;
     Quaternion rotation;
+
+    private void Awake()
+    {
+        actions = new CarInputActions();
+        keys = actions.Car.Movement.bindings;
+    }
 
     // Start is called before the first frame update
     private void Start()

@@ -14,12 +14,21 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Switch",
+                    "type": "Button",
+                    "id": "e37cb553-524a-40a8-b2f8-9294e2e471a9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "2D Vector",
-                    "id": "772fd63a-bc74-4e94-ac58-b629d0ba4124",
+                    "id": "b77d3378-3eff-4a09-b267-4024dbcef631",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -30,8 +39,8 @@
                 },
                 {
                     "name": "up",
-                    "id": "d5a5b816-2ddb-4047-8d51-c8075942099a",
-                    "path": "<Keyboard>/w",
+                    "id": "09c7842c-414c-4589-be5c-7dbb173a098f",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -41,8 +50,8 @@
                 },
                 {
                     "name": "down",
-                    "id": "ddce6c15-9bd7-42d2-b504-aedc40f148fc",
-                    "path": "<Keyboard>/s",
+                    "id": "544602fc-e9c1-4a37-9d2d-196122bafa8e",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -52,8 +61,8 @@
                 },
                 {
                     "name": "left",
-                    "id": "d103ce0f-2a82-41a0-8885-e8982cb0ff4e",
-                    "path": "<Keyboard>/a",
+                    "id": "02bb3e6d-13ac-45f4-9532-4831fa2abcdf",
+                    "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -63,14 +72,25 @@
                 },
                 {
                     "name": "right",
-                    "id": "8d23a2e0-c62c-4600-b597-fac1231b2c06",
-                    "path": "<Keyboard>/d",
+                    "id": "66d01692-cfc0-4792-8b34-a8dc276676d6",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "23c2b4c3-9721-470b-b416-e4e691c5cbbc",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
