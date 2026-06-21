@@ -109,6 +109,51 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FL"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca1f9cbc-0566-4e7f-9d27-7c4ee5dc5f51"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FR"",
+                    ""type"": ""Button"",
+                    ""id"": ""30e8ba70-3931-41c5-96b6-72a37d90c5b2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BL"",
+                    ""type"": ""Button"",
+                    ""id"": ""876fe3e4-2950-4f99-8a2b-33f5078b0bba"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BR"",
+                    ""type"": ""Button"",
+                    ""id"": ""eacf8be8-eaf7-4833-a2e8-17f62f9ff766"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Gear"",
+                    ""type"": ""Button"",
+                    ""id"": ""7bba5c11-ba1b-4659-b01c-dc409b721cf3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -177,6 +222,61 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Switch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88185f53-825a-416d-8022-97e15c6080af"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d5477f0d-898a-49b5-9ca9-d54170029455"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FR"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""543b1a02-662b-412b-9538-34ba3e9d57c3"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8a5d419-9e37-451c-af0d-d19c3ea058f6"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BR"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68df717b-4556-4b62-a7cd-52003b6d261b"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gear"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -187,6 +287,11 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
         m_Car = asset.FindActionMap("Car", throwIfNotFound: true);
         m_Car_Movement = m_Car.FindAction("Movement", throwIfNotFound: true);
         m_Car_Switch = m_Car.FindAction("Switch", throwIfNotFound: true);
+        m_Car_FL = m_Car.FindAction("FL", throwIfNotFound: true);
+        m_Car_FR = m_Car.FindAction("FR", throwIfNotFound: true);
+        m_Car_BL = m_Car.FindAction("BL", throwIfNotFound: true);
+        m_Car_BR = m_Car.FindAction("BR", throwIfNotFound: true);
+        m_Car_Gear = m_Car.FindAction("Gear", throwIfNotFound: true);
     }
 
     ~@CarInputActions()
@@ -269,6 +374,11 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
     private List<ICarActions> m_CarActionsCallbackInterfaces = new List<ICarActions>();
     private readonly InputAction m_Car_Movement;
     private readonly InputAction m_Car_Switch;
+    private readonly InputAction m_Car_FL;
+    private readonly InputAction m_Car_FR;
+    private readonly InputAction m_Car_BL;
+    private readonly InputAction m_Car_BR;
+    private readonly InputAction m_Car_Gear;
     /// <summary>
     /// Provides access to input actions defined in input action map "Car".
     /// </summary>
@@ -288,6 +398,26 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Car/Switch".
         /// </summary>
         public InputAction @Switch => m_Wrapper.m_Car_Switch;
+        /// <summary>
+        /// Provides access to the underlying input action "Car/FL".
+        /// </summary>
+        public InputAction @FL => m_Wrapper.m_Car_FL;
+        /// <summary>
+        /// Provides access to the underlying input action "Car/FR".
+        /// </summary>
+        public InputAction @FR => m_Wrapper.m_Car_FR;
+        /// <summary>
+        /// Provides access to the underlying input action "Car/BL".
+        /// </summary>
+        public InputAction @BL => m_Wrapper.m_Car_BL;
+        /// <summary>
+        /// Provides access to the underlying input action "Car/BR".
+        /// </summary>
+        public InputAction @BR => m_Wrapper.m_Car_BR;
+        /// <summary>
+        /// Provides access to the underlying input action "Car/Gear".
+        /// </summary>
+        public InputAction @Gear => m_Wrapper.m_Car_Gear;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -320,6 +450,21 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
             @Switch.started += instance.OnSwitch;
             @Switch.performed += instance.OnSwitch;
             @Switch.canceled += instance.OnSwitch;
+            @FL.started += instance.OnFL;
+            @FL.performed += instance.OnFL;
+            @FL.canceled += instance.OnFL;
+            @FR.started += instance.OnFR;
+            @FR.performed += instance.OnFR;
+            @FR.canceled += instance.OnFR;
+            @BL.started += instance.OnBL;
+            @BL.performed += instance.OnBL;
+            @BL.canceled += instance.OnBL;
+            @BR.started += instance.OnBR;
+            @BR.performed += instance.OnBR;
+            @BR.canceled += instance.OnBR;
+            @Gear.started += instance.OnGear;
+            @Gear.performed += instance.OnGear;
+            @Gear.canceled += instance.OnGear;
         }
 
         /// <summary>
@@ -337,6 +482,21 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
             @Switch.started -= instance.OnSwitch;
             @Switch.performed -= instance.OnSwitch;
             @Switch.canceled -= instance.OnSwitch;
+            @FL.started -= instance.OnFL;
+            @FL.performed -= instance.OnFL;
+            @FL.canceled -= instance.OnFL;
+            @FR.started -= instance.OnFR;
+            @FR.performed -= instance.OnFR;
+            @FR.canceled -= instance.OnFR;
+            @BL.started -= instance.OnBL;
+            @BL.performed -= instance.OnBL;
+            @BL.canceled -= instance.OnBL;
+            @BR.started -= instance.OnBR;
+            @BR.performed -= instance.OnBR;
+            @BR.canceled -= instance.OnBR;
+            @Gear.started -= instance.OnGear;
+            @Gear.performed -= instance.OnGear;
+            @Gear.canceled -= instance.OnGear;
         }
 
         /// <summary>
@@ -391,5 +551,40 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSwitch(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "FL" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFL(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "FR" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFR(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "BL" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBL(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "BR" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBR(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Gear" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGear(InputAction.CallbackContext context);
     }
 }

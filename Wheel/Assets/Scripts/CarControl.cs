@@ -18,6 +18,12 @@ public class CarControl : MonoBehaviour
 
     private CarInputActions carControls;
 
+    private bool isAPressed;
+    private bool isSPressed;
+    private bool isKPressed;
+    private bool isLPressed;
+    private bool isGearPressed;
+
     void Awake()
     {
         carControls = new CarInputActions();
@@ -45,6 +51,15 @@ public class CarControl : MonoBehaviour
         foreach(WheelControl wheel in wheels){
             wheel.WheelCollider.brakeTorque = 0f;
         }
+    }
+
+    void Update()
+    {
+        isAPressed = carControls.Car.FL.IsPressed();
+        isSPressed = carControls.Car.FR.IsPressed();
+        isKPressed = carControls.Car.BL.IsPressed();
+        isLPressed = carControls.Car.BR.IsPressed();
+        isGearPressed = carControls.Car.Gear.IsPressed();
     }
 
     void FixedUpdate()
@@ -136,5 +151,35 @@ public class CarControl : MonoBehaviour
         //    wheels[0].WheelCollider.brakeTorque = 0f;
         //    wheels[0].WheelCollider.motorTorque = Mathf.Lerp(wheels[0].WheelCollider.motorTorque, currentMotorTorque, 0.2f);
         //}
+
+        for (int i = 0; i < wheels.Length; i++)
+        {
+            // 1. Determine which key belongs to which wheel index
+            bool isWheelKeyPressed = false;
+            if (i == 0) isWheelKeyPressed = isAPressed; // Front Left
+            if (i == 1) isWheelKeyPressed = isSPressed; // Front Right
+            if (i == 2) isWheelKeyPressed = isKPressed; // Back Left
+            if (i == 3) isWheelKeyPressed = isLPressed; // Back Right
+
+            // 2. Apply the independent torque and steer logic for this specific wheel
+            if (isWheelKeyPressed && isGearPressed)
+            {
+                wheels[i].WheelCollider.motorTorque = Mathf.Lerp(wheels[i].WheelCollider.motorTorque, -motorTorque, 0.2f);
+                wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle, -5.0f, 0.2f);
+            }
+            else if (isWheelKeyPressed)
+            {
+                wheels[i].WheelCollider.motorTorque = Mathf.Lerp(wheels[i].WheelCollider.motorTorque, motorTorque, 0.2f);
+                wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle, 5.0f, 0.2f);
+            }
+            else
+            {
+                // Smoothly decelerate torque back to zero when this wheel's key is released
+                wheels[i].WheelCollider.motorTorque = Mathf.MoveTowards(wheels[i].WheelCollider.motorTorque, 0f, brakeTorque * Time.fixedDeltaTime);
+                
+                // Smoothly straighten the steering angle back to center
+                wheels[i].WheelCollider.steerAngle = Mathf.MoveTowards(wheels[i].WheelCollider.steerAngle, 0f, 15f * Time.fixedDeltaTime);
+            }
+        }
     }
 }
