@@ -89,12 +89,12 @@ public class CarControl : MonoBehaviour
             if (vInput < 0)
             {
                 wheels[1].WheelCollider.motorTorque = Mathf.Lerp(wheels[1].WheelCollider.motorTorque, -motorTorque, 0.2f);
-                wheels[1].WheelCollider.steerAngle = Mathf.Lerp(wheels[1].WheelCollider.steerAngle, -5.0f, 0.2f);
+                wheels[1].WheelCollider.steerAngle = Mathf.Lerp(wheels[1].WheelCollider.steerAngle, 5.0f, 0.2f);
             }
             if (hInput < 0)
             {
                 wheels[2].WheelCollider.motorTorque = Mathf.Lerp(wheels[2].WheelCollider.motorTorque, -motorTorque, 0.2f);
-                wheels[2].WheelCollider.steerAngle = Mathf.Lerp(wheels[2].WheelCollider.steerAngle, -5.0f, 0.2f);
+                wheels[2].WheelCollider.steerAngle = Mathf.Lerp(wheels[2].WheelCollider.steerAngle, 5.0f, 0.2f);
             }
             if (hInput > 0)
             {
@@ -112,12 +112,12 @@ public class CarControl : MonoBehaviour
             if (vInput < 0)
             {
                 wheels[1].WheelCollider.motorTorque = Mathf.Lerp(wheels[1].WheelCollider.motorTorque, motorTorque, 0.2f);
-                wheels[1].WheelCollider.steerAngle = Mathf.Lerp(wheels[1].WheelCollider.steerAngle, 5.0f, 0.2f);
+                wheels[1].WheelCollider.steerAngle = Mathf.Lerp(wheels[1].WheelCollider.steerAngle, -5.0f, 0.2f);
             }
             if (hInput < 0)
             {
                 wheels[2].WheelCollider.motorTorque = Mathf.Lerp(wheels[2].WheelCollider.motorTorque, motorTorque, 0.2f);
-                wheels[2].WheelCollider.steerAngle = Mathf.Lerp(wheels[2].WheelCollider.steerAngle, 5.0f, 0.2f);
+                wheels[2].WheelCollider.steerAngle = Mathf.Lerp(wheels[2].WheelCollider.steerAngle, -5.0f, 0.2f);
             }
             if (hInput > 0)
             {
