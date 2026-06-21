@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dfc9ad77edf374c8699f88d1453db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarController
-  motorTorque: 200
+  motorTorque: 2000
   brakeTorque: 2000
   maxSpeed: 20
   steeringRange: 30
@@ -368,7 +368,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 27
-  orthographic: 1
+  orthographic: 0
   orthographic size: 4
   m_Depth: -1
   m_CullingMask:
