@@ -23,12 +23,14 @@ public class WheelControl : MonoBehaviour
     {
         actions = new CarInputActions();
         keys = actions.Car.Movement.bindings;
+
+        WheelCollider = GetComponent<WheelCollider>();
     }
 
     // Start is called before the first frame update
     private void Start()
     {
-        WheelCollider = GetComponent<WheelCollider>();
+        
     }
 
     // Update is called once per frame
