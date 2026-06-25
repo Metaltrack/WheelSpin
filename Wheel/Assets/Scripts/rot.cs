@@ -5,6 +5,7 @@ public class rot : MonoBehaviour
 {
     [Header("Controls")]
     public float speed = 2.0f;
+    public Vector3 axis;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +20,6 @@ public class rot : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Rotate(new Vector3(0.0f, speed, 0.0f));
+        transform.Rotate(axis * speed);
     }
 }
