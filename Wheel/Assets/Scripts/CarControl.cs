@@ -93,59 +93,55 @@ public class CarControl : MonoBehaviour
         }
 
         //Hardcoded stuff
-        print(hInput);
-        if (gear > 0.0f)
-        {
-            if (vInput > 0)
-            {
-                wheels[0].WheelCollider.motorTorque = Mathf.Lerp(wheels[0].WheelCollider.motorTorque, -motorTorque, 0.2f);
-                wheels[0].WheelCollider.steerAngle = Mathf.Lerp(wheels[0].WheelCollider.steerAngle, -5.0f, 0.2f);
-            }
-            if (vInput < 0)
-            {
-                wheels[1].WheelCollider.motorTorque = Mathf.Lerp(wheels[1].WheelCollider.motorTorque, -motorTorque, 0.2f);
-                wheels[1].WheelCollider.steerAngle = Mathf.Lerp(wheels[1].WheelCollider.steerAngle, 5.0f, 0.2f);
-            }
-            if (hInput < 0)
-            {
-                wheels[2].WheelCollider.motorTorque = Mathf.Lerp(wheels[2].WheelCollider.motorTorque, -motorTorque, 0.2f);
-                wheels[2].WheelCollider.steerAngle = Mathf.Lerp(wheels[2].WheelCollider.steerAngle, 5.0f, 0.2f);
-            }
-            if (hInput > 0)
-            {
-                wheels[3].WheelCollider.motorTorque = Mathf.Lerp(wheels[3].WheelCollider.motorTorque, -motorTorque, 0.2f);
-                wheels[3].WheelCollider.steerAngle = Mathf.Lerp(wheels[3].WheelCollider.steerAngle, -5.0f, 0.2f);
-            }
-        }
-        else
-        {
-            if (vInput > 0)
-            {
-                wheels[0].WheelCollider.motorTorque = Mathf.Lerp(wheels[0].WheelCollider.motorTorque, motorTorque, 0.2f);
-                wheels[0].WheelCollider.steerAngle = Mathf.Lerp(wheels[0].WheelCollider.steerAngle, 5.0f, 0.2f);
-            }
-            if (vInput < 0)
-            {
-                wheels[1].WheelCollider.motorTorque = Mathf.Lerp(wheels[1].WheelCollider.motorTorque, motorTorque, 0.2f);
-                wheels[1].WheelCollider.steerAngle = Mathf.Lerp(wheels[1].WheelCollider.steerAngle, -5.0f, 0.2f);
-            }
-            if (hInput < 0)
-            {
-                wheels[2].WheelCollider.motorTorque = Mathf.Lerp(wheels[2].WheelCollider.motorTorque, motorTorque, 0.2f);
-                wheels[2].WheelCollider.steerAngle = Mathf.Lerp(wheels[2].WheelCollider.steerAngle, -5.0f, 0.2f);
-            }
-            if (hInput > 0)
-            {
-                wheels[3].WheelCollider.motorTorque = Mathf.Lerp(wheels[3].WheelCollider.motorTorque, motorTorque, 0.2f);
-                wheels[3].WheelCollider.steerAngle = Mathf.Lerp(wheels[3].WheelCollider.steerAngle, 5.0f, 0.2f);
-            }
-            //wheels[2].WheelCollider.motorTorque = Mathf.Lerp(wheels[0].WheelCollider.motorTorque, currentMotorTorque, 2.0f);
-            //wheels[3].WheelCollider.motorTorque = Mathf.Lerp(wheels[0].WheelCollider.motorTorque, currentMotorTorque, 2.0f);
-        }
-        print("front left: " + wheels[0].WheelCollider.motorTorque);
-        print("front right: " + wheels[1].WheelCollider.motorTorque);
-        print("back left: " + wheels[2].WheelCollider.motorTorque);
-        print("back right: " + wheels[3].WheelCollider.motorTorque);
+        //print(hInput);
+        //if (gear > 0.0f)
+        //{
+        //    if (vInput > 0)
+        //    {
+        //        wheels[0].WheelCollider.motorTorque = Mathf.Lerp(wheels[0].WheelCollider.motorTorque, -motorTorque, 0.2f);
+        //        wheels[0].WheelCollider.steerAngle = Mathf.Lerp(wheels[0].WheelCollider.steerAngle, -5.0f, 0.2f);
+        //    }
+        //    if (vInput < 0)
+        //    {
+        //        wheels[1].WheelCollider.motorTorque = Mathf.Lerp(wheels[1].WheelCollider.motorTorque, -motorTorque, 0.2f);
+        //        wheels[1].WheelCollider.steerAngle = Mathf.Lerp(wheels[1].WheelCollider.steerAngle, 5.0f, 0.2f);
+        //    }
+        //    if (hInput < 0)
+        //    {
+        //        wheels[2].WheelCollider.motorTorque = Mathf.Lerp(wheels[2].WheelCollider.motorTorque, -motorTorque, 0.2f);
+        //        wheels[2].WheelCollider.steerAngle = Mathf.Lerp(wheels[2].WheelCollider.steerAngle, 5.0f, 0.2f);
+        //    }
+        //    if (hInput > 0)
+        //    {
+        //        wheels[3].WheelCollider.motorTorque = Mathf.Lerp(wheels[3].WheelCollider.motorTorque, -motorTorque, 0.2f);
+        //        wheels[3].WheelCollider.steerAngle = Mathf.Lerp(wheels[3].WheelCollider.steerAngle, -5.0f, 0.2f);
+        //    }
+        //}
+        //else
+        //{
+        //    if (vInput > 0)
+        //    {
+        //        wheels[0].WheelCollider.motorTorque = Mathf.Lerp(wheels[0].WheelCollider.motorTorque, motorTorque, 0.2f);
+        //        wheels[0].WheelCollider.steerAngle = Mathf.Lerp(wheels[0].WheelCollider.steerAngle, 5.0f, 0.2f);
+        //    }
+        //    if (vInput < 0)
+        //    {
+        //        wheels[1].WheelCollider.motorTorque = Mathf.Lerp(wheels[1].WheelCollider.motorTorque, motorTorque, 0.2f);
+        //        wheels[1].WheelCollider.steerAngle = Mathf.Lerp(wheels[1].WheelCollider.steerAngle, -5.0f, 0.2f);
+        //    }
+        //    if (hInput < 0)
+        //    {
+        //        wheels[2].WheelCollider.motorTorque = Mathf.Lerp(wheels[2].WheelCollider.motorTorque, motorTorque, 0.2f);
+        //        wheels[2].WheelCollider.steerAngle = Mathf.Lerp(wheels[2].WheelCollider.steerAngle, -5.0f, 0.2f);
+        //    }
+        //    if (hInput > 0)
+        //    {
+        //        wheels[3].WheelCollider.motorTorque = Mathf.Lerp(wheels[3].WheelCollider.motorTorque, motorTorque, 0.2f);
+        //        wheels[3].WheelCollider.steerAngle = Mathf.Lerp(wheels[3].WheelCollider.steerAngle, 5.0f, 0.2f);
+        //    }
+        //    //wheels[2].WheelCollider.motorTorque = Mathf.Lerp(wheels[0].WheelCollider.motorTorque, currentMotorTorque, 2.0f);
+        //    //wheels[3].WheelCollider.motorTorque = Mathf.Lerp(wheels[0].WheelCollider.motorTorque, currentMotorTorque, 2.0f);
+        //}
         //if(vInput > 1)
         //{
         //    wheels[0].WheelCollider.brakeTorque = 0f;
@@ -165,12 +161,26 @@ public class CarControl : MonoBehaviour
             if (isWheelKeyPressed && isGearPressed)
             {
                 wheels[i].WheelCollider.motorTorque = Mathf.Lerp(wheels[i].WheelCollider.motorTorque, -motorTorque, 0.2f);
-                wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle, -5.0f, 0.2f);
+                if (i == 0 || i == 2)
+                {
+                    wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle,-5.0f, 0.2f);
+                }
+                else
+                {
+                    wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle, 5.0f, 0.2f);
+                }
             }
             else if (isWheelKeyPressed)
             {
                 wheels[i].WheelCollider.motorTorque = Mathf.Lerp(wheels[i].WheelCollider.motorTorque, motorTorque, 0.2f);
-                wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle, 5.0f, 0.2f);
+                if (i == 0 || i == 2)
+                {
+                    wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle, 5.0f, 0.2f);
+                }
+                else
+                {
+                    wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle, -5.0f, 0.2f);
+                }
             }
             else
             {
