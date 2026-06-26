@@ -48,9 +48,6 @@ public class CarControl : MonoBehaviour
         rigidBody.centerOfMass = centerOfMass;
 
         wheels = GetComponentsInChildren<WheelControl>();
-        foreach(WheelControl wheel in wheels){
-            wheel.WheelCollider.brakeTorque = 0f;
-        }
     }
 
     void Update()
@@ -80,17 +77,6 @@ public class CarControl : MonoBehaviour
 
         // Determine if the player is accelerating or trying to reverse
         //bool isAccelerating = Mathf.Sign(vInput) == Mathf.Sign(forwardSpeed);
-
-        foreach (var wheel in wheels)
-        {
-            //if (wheel.steerable)
-            //{
-            //    wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
-            //}
-            //wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
-            // Release brakes when accelerating
-            wheel.WheelCollider.brakeTorque = 0f;
-        }
 
         //Hardcoded stuff
         //print(hInput);

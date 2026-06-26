@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class elementsOfDoom : MonoBehaviour
 {
@@ -19,7 +20,8 @@ public class elementsOfDoom : MonoBehaviour
 
     private void Doom(Vector3 pos)
     {
-        Instantiate(tornado, pos, tornado.transform.rotation);
+        GameObject instance = Instantiate(tornado, pos, tornado.transform.rotation);
+        Destroy(instance, 5f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,7 +37,13 @@ public class elementsOfDoom : MonoBehaviour
             if (!spawned)
             {
                 spawned = true;
-                Doom(new Vector3(transform.position.x - dist, transform.position.y - dist, transform.position.z - dist));
+                Vector3 pos = new Vector3(
+                        (transform.position.x + other_pos.x) / 2,
+                        (transform.position.y + other_pos.y) / 2,
+                        (transform.position.z + other_pos.z) / 2
+                    );
+
+                Doom(pos);
             }
         }
     }

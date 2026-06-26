@@ -7,6 +7,8 @@ TagManager:
   - Freezer
   - Oven
   - Tornado
+  - Car
+  - phyObj
   layers:
   - Default
   - TransparentFX

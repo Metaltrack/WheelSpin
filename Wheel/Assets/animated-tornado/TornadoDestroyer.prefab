@@ -93,6 +93,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2baa3eca752c8a47aa21d64d47c5c7d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5743675000906254526}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2baa3eca752c8a47aa21d64d47c5c7d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1877656143461577582}
   m_SourcePrefab: {fileID: 100100000, guid: b2baa3eca752c8a47aa21d64d47c5c7d, type: 3}
 --- !u!1 &2324265304623370497 stripped
 GameObject:
@@ -4916,3 +4919,24 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!135 &1877656143461577582
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2324265304623370497}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 450
+  m_Center: {x: 18.939695, y: 33.959343, z: 157.28993}
