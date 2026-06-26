@@ -48,9 +48,6 @@ public class CarControl : MonoBehaviour
         rigidBody.centerOfMass = centerOfMass;
 
         wheels = GetComponentsInChildren<WheelControl>();
-        foreach(WheelControl wheel in wheels){
-            wheel.WheelCollider.brakeTorque = 0f;
-        }
     }
 
     void Update()
@@ -80,17 +77,6 @@ public class CarControl : MonoBehaviour
 
         // Determine if the player is accelerating or trying to reverse
         //bool isAccelerating = Mathf.Sign(vInput) == Mathf.Sign(forwardSpeed);
-
-        foreach (var wheel in wheels)
-        {
-            //if (wheel.steerable)
-            //{
-            //    wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
-            //}
-            //wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
-            // Release brakes when accelerating
-            wheel.WheelCollider.brakeTorque = 0f;
-        }
 
         //Hardcoded stuff
         //print(hInput);
@@ -142,10 +128,6 @@ public class CarControl : MonoBehaviour
         //    //wheels[2].WheelCollider.motorTorque = Mathf.Lerp(wheels[0].WheelCollider.motorTorque, currentMotorTorque, 2.0f);
         //    //wheels[3].WheelCollider.motorTorque = Mathf.Lerp(wheels[0].WheelCollider.motorTorque, currentMotorTorque, 2.0f);
         //}
-        print("front left: " + wheels[0].WheelCollider.motorTorque);
-        print("front right: " + wheels[1].WheelCollider.motorTorque);
-        print("back left: " + wheels[2].WheelCollider.motorTorque);
-        print("back right: " + wheels[3].WheelCollider.motorTorque);
         //if(vInput > 1)
         //{
         //    wheels[0].WheelCollider.brakeTorque = 0f;
@@ -165,12 +147,26 @@ public class CarControl : MonoBehaviour
             if (isWheelKeyPressed && isGearPressed)
             {
                 wheels[i].WheelCollider.motorTorque = Mathf.Lerp(wheels[i].WheelCollider.motorTorque, -motorTorque, 0.2f);
-                wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle, -5.0f, 0.2f);
+                if (i == 0 || i == 2)
+                {
+                    wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle,-5.0f, 0.2f);
+                }
+                else
+                {
+                    wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle, 5.0f, 0.2f);
+                }
             }
             else if (isWheelKeyPressed)
             {
                 wheels[i].WheelCollider.motorTorque = Mathf.Lerp(wheels[i].WheelCollider.motorTorque, motorTorque, 0.2f);
-                wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle, 5.0f, 0.2f);
+                if (i == 0 || i == 2)
+                {
+                    wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle, 5.0f, 0.2f);
+                }
+                else
+                {
+                    wheels[i].WheelCollider.steerAngle = Mathf.Lerp(wheels[i].WheelCollider.steerAngle, -5.0f, 0.2f);
+                }
             }
             else
             {
