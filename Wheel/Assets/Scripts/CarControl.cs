@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
+using UnityEngine.UI;
 
 public class CarControl : MonoBehaviour
 {
@@ -23,6 +24,17 @@ public class CarControl : MonoBehaviour
     private bool isKPressed;
     private bool isLPressed;
     private bool isGearPressed;
+
+    [Header("Chassis Key Visuals")]
+    public Image frontLeft_Q;
+    public Image frontRight_W;
+    public Image backLeft_O;
+    public Image backRight_P;
+    public Image gear_Space;
+
+    [Header("Color States")]
+    // The visual color when the key is NOT pressed (using your yellow branding)
+    public Color releasedColor = new Color(1f, 1f, 0f, 1f);
 
     void Awake()
     {
@@ -57,6 +69,29 @@ public class CarControl : MonoBehaviour
         isKPressed = carControls.Car.BL.IsPressed();
         isLPressed = carControls.Car.BR.IsPressed();
         isGearPressed = carControls.Car.Gear.IsPressed();
+
+        SetAlphaVisibility(frontLeft_Q, isAPressed);
+        SetAlphaVisibility(frontRight_W, isSPressed);
+        SetAlphaVisibility(backLeft_O, isKPressed);
+        SetAlphaVisibility(backRight_P, isLPressed);
+        SetAlphaVisibility(gear_Space, isGearPressed);
+    }
+
+    private void SetAlphaVisibility(Image img, bool isPressed)
+    {
+        if (img != null)
+        {
+            if (isPressed)
+            {
+                // Force alpha directly to 0 (completely transparent)
+                img.color = new Color(releasedColor.r, releasedColor.g, releasedColor.b, 0f);
+            }
+            else
+            {
+                // Restore default full visibility
+                img.color = releasedColor;
+            }
+        }
     }
 
     void FixedUpdate()
