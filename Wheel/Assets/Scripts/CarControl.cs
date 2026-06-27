@@ -16,6 +16,7 @@ public class CarControl : MonoBehaviour
 
     private WheelControl[] wheels;
     private Rigidbody rigidBody;
+    private AudioSource sound;
 
     private CarInputActions carControls;
 
@@ -60,6 +61,7 @@ public class CarControl : MonoBehaviour
         rigidBody.centerOfMass = centerOfMass;
 
         wheels = GetComponentsInChildren<WheelControl>();
+        sound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -168,6 +170,15 @@ public class CarControl : MonoBehaviour
         //    wheels[0].WheelCollider.brakeTorque = 0f;
         //    wheels[0].WheelCollider.motorTorque = Mathf.Lerp(wheels[0].WheelCollider.motorTorque, currentMotorTorque, 0.2f);
         //}
+
+        if(rigidBody.linearVelocity.magnitude > 1.0f)
+        {
+            sound.pitch = 1.8f;
+        }
+        else
+        {
+            sound.pitch = 1.0f;
+        }
 
         for (int i = 0; i < wheels.Length; i++)
         {

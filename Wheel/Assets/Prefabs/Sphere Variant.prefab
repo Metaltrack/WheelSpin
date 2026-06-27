@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4231850572428025541, guid: a3db52d569ccd3c468777dd8e04f65ce, type: 3}
+      propertyPath: m_TagString
+      value: phyObj
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
